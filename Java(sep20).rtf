@@ -1,0 +1,202 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fmodern JetBrains Mono;}}
+{\colortbl ;\red204\green120\blue50;\red169\green183\blue198;\red255\green198\blue109;\red152\green118\blue170;\red106\green135\blue89;\red104\green151\blue187;\red128\green128\blue128;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang9 Date: 20/09/2021 \par
+\ul\b\fs32 JAVA   \par
+\fs24\par
+
+\pard\box\brdrdash\brdrw0 \sa200\sl276\slmult1\cf1\ulnone\b0\lang1033 1>\par
+\f1\lang9 package \cf2 com.torryharris\cf1 ;\line\line import \cf2 sun.security.rsa.RSAUtil\cf1 ;\line\line import \cf2 java.util.Scanner\cf1 ;\line\line public class \cf2 Main \{\line\line     \cf1 public static void \cf3 main\cf2 (String[] args) \{\line         Scanner sc = \cf1 new \cf2 Scanner(System.\cf4\i in\cf2\i0 )\cf1 ;\line         int \cf2 num1\cf1 ,\cf2 num2\cf1 ,\cf2 num3\cf1 ,\cf2 num4\cf1 ;\line         \cf2 Scanner sc = \cf1 new \cf2 Scanner(System.\cf4\i in\cf2\i0 )\cf1 ;\line         \cf2 System.\cf4\i out\cf2\i0 .println(\cf5 "Enter the numbers"\cf2 )\cf1 ;\line         \cf2 num1= sc.nextInt()\cf1 ;\line         \cf2 num2= sc.nextInt()\cf1 ;\line         \cf2 num3= sc.nextInt()\cf1 ;\line         \cf2 num4= sc.nextInt()\cf1 ;\line         int \cf2 sum=num1+num2\cf1 ;\line         int \cf2 diff=num3-num4\cf1 ;\line         \cf2 System.\cf4\i out\cf2\i0 .println(\cf5 "Sum of 1st two numbers\f0\lang1033 =\f1\lang9 "\cf2 +sum)\cf1 ;\line         \cf2 System.\cf4\i out\cf2\i0 .println(\cf5 "diffrence of last two numbers\f0\lang1033 =\f1\lang9 "\cf2 +diff)\cf1 ;\par
+\f0\lang1033\}\par
+\}\par
+output:\par
+\par
+Enter the numbers\par
+12\par
+13\par
+15\par
+2\par
+Sum of 1st two numbers=25\par
+diffrence of last two numbers=13\par
+\par
+2>\par
+\f1 int \cf2 num\cf1 ;\line\cf2 System.\cf4\i out\cf2\i0 .println(\cf5 "Enter the number: "\cf2 )\cf1 ;\line\cf2 num= sc.nextInt()\cf1 ;\line if \cf2 (num%\cf6 2\cf2 ==\cf6 0\cf2 )\line\{\line     System.\cf4\i out\cf2\i0 .println(num+\cf5 "\f0  \f1 is even number"\cf2 )\cf1 ;\line\cf2\}\line\cf1 else\line\cf2\{\line     System.\cf4\i out\cf2\i0 .println(num+\cf5 "\f0  \f1 is odd number"\cf2 )\cf1 ;\line\cf2\}\par
+\cf1\f0 output:\par
+13\par
+13 is odd number\par
+Enter the number: \par
+18\par
+18 is even number\par
+\par
+3>\par
+\cf2\f1 System.\cf4\i out\cf2\i0 .println(\cf5 "finder the largest of three numbers:"\cf2 )\cf1 ;\line\cf2 System.\cf4\i out\cf2\i0 .println(\cf5 "Enter the numbers:"\cf2 )\cf1 ;\line\cf2 Scanner sc=\cf1 new \cf2 Scanner(System.\cf4\i in\cf2\i0 )\cf1 ;\line int \cf2 num1= sc.nextInt()\cf1 ;\line long \cf2 num2= sc.nextLong()\cf1 ;\line double \cf2 num3= sc.nextDouble()\cf1 ;\line double \cf2 lar1=(num1>num2)?num1:num2\cf1 ;\line double \cf2 lar2=(lar1>num3)?lar1:num3\cf1 ;\line\cf2 System.\cf4\i out\cf2\i0 .println(\cf5 "Largest number: "\cf2 +lar2)\cf1 ;\par
+\f0 output:\par
+13\par
+14\par
+7\par
+Largest number: 14.0\par
+\par
+4>Type casting\par
+\f1 float \cf2 f1=\cf6 13.332F\cf1 ;\line double \cf2 d1=f1\cf1 ;\line float \cf2 f2=(\cf1 float\cf2 )d1\cf1 ;\line int \cf2 i1=(\cf1 int\cf2 )d1\cf1 ;\line\cf2 System.\cf4\i out\cf2\i0 .println(\cf5 "i1 value: "\cf2 +i1)\cf1 ;\line\cf2 System.\cf4\i out\cf2\i0 .println(\cf5 "f2 value: "\cf2 +f2)\cf1 ;\line\cf2 System.\cf4\i out\cf2\i0 .println(\cf5 "d1 values:"\cf2 +d1)\cf1 ;\line\cf2 System.\cf4\i out\cf2\i0 .printf(\cf5 "formatted d1: %.2f"\cf1 ,\cf2 d1)\cf1 ;\par
+\line\f0 output:\par
+i1 value: 13\par
+f2 value: 13.332\par
+d1 values:13.331999778747559\par
+formatted d1: 13.33\par
+\par
+5>\par
+\f1 int \cf2 i=\cf6 10\cf1 ;\line int \cf2 ans1=++i\cf1 ;\cf7 //increment and increment\line\cf2 System.\cf4\i out\cf2\i0 .println(i+\cf5 " "\cf2 +ans1)\cf1 ;\line int \cf2 ans2=i++\cf1 ;\cf7 //assign and increment\line\cf2 System.\cf4\i out\cf2\i0 .println(i+\cf5 " "\cf2 +ans2)\cf1 ;\par
+\f0 output:\par
+11 11\par
+12 11\par
+\par
+6>\par
+\cf2\f1 System.\cf4\i out\cf2\i0 .println(\cf5 "enter the number to be reverse:"\cf2 )\cf1 ;\line int \cf2 num=sc.nextInt()\cf1 ;\line\cf2 System.\cf4\i out\cf2\i0 .println(\cf5 "reverse of "\cf2 +num+\cf5 " is : "\cf2 +\i reversenum\i0 (num))\cf1 ;\par
+public static int \cf3 reversenum\cf2 (\cf1 int \cf2 n)\line\{\line     \cf1 int \cf2 rem=\cf6 0\cf1 ,\cf2 revn=\cf6 0\cf1 ;\line     while\cf2 (n!=\cf6 0\cf2 )\line     \{\line         rem=n%\cf6 10\cf1 ;\line         \cf2 revn=revn*\cf6 10 \cf2 +rem\cf1 ;\line         \cf2 n=n/\cf6 10\cf1 ;\line     \cf2\}\line     \cf1 return \cf2 revn\cf1 ;\line\cf2\}\par
+\cf1\f0 output:\par
+12345\par
+reverse of 12345 is : 54321\par
+\par
+7>\par
+\cf2\f1 System.\cf4\i out\cf2\i0 .println(\cf5 "enter the number to check prime number or not"\cf2 )\cf1 ;\line int \cf2 num= sc.nextInt()\cf1 ;\line if\cf2 (\i isprime\i0 (num))\line\{\line     System.\cf4\i out\cf2\i0 .println(\cf5 "the number is prime"\cf2 )\cf1 ;\line\cf2\}\line\cf1 else\line\cf2\{\line     System.\cf4\i out\cf2\i0 .println(\cf5 "the number is not prime"\cf2 )\cf1 ;\line\cf2\}\par
+\cf1 public  static boolean \cf3 isprime\cf2 (\cf1 int \cf2 n)\line\{\line     \cf1 boolean \cf2 flag=\cf1 true;\line     for\cf2 (\cf1 int \cf2 i=\cf6 2\cf1 ;\cf2 i<=n/\cf6 2\cf1 ;\cf2 i++)\line     \{\line         \cf1 if\cf2 (n%i==\cf6 0\cf2 )\line         \{\line             flag=\cf1 false;\line             break;\line         \cf2\}\line     \}\line     \cf1 return \cf2 flag\cf1 ;\line\cf2\}\par
+\cf1\f0 output:\par
+3\par
+the number is prime\par
+81\par
+the number is not prime\par
+\par
+8>\par
+\cf2\f1 System.\cf4\i out\cf2\i0 .println(\cf5 "enter the number to find factorial of a number:"\cf2 )\cf1 ;\line int \cf2 num1= sc.nextInt()\cf1 ;\line\cf2 System.\cf4\i out\cf2\i0 .println(\cf5 "factorial of a number "\cf2 +num1+\cf5 ": "\cf2 +\i fact\i0 (num1))\cf1 ;\par
+public static int \cf3 fact\cf2 (\cf1 int \cf2 n)\line\{\line     \cf1 int \cf2 fact=\cf6 1\cf1 ;\line     for\cf2 (\cf1 int \cf2 i=n\cf1 ;\cf2 i>\cf6 0\cf1 ;\cf2 i--)\line     \{\line         fact*=i\cf1 ;\line     \cf2\}\line     \cf1 return \cf2 fact\cf1 ;\line\cf2\}\par
+\f0 output:\par
+enter the number to find factorial of a number:\par
+5\par
+factorial of a number 5: 120\par
+enter the number to find factorial of a number:\par
+6\par
+factorial of a number 6: 720\par
+\par
+9>\par
+\cf7\f1 //find the number of days in the month\line\cf2 System.\cf4\i out\cf2\i0 .println(\cf5 "enter the month number: "\cf2 )\cf1 ;\line int \cf2 n=s\f0 c\f1 .nextInt()\cf1 ;\line\cf2 System.\cf4\i out\cf2\i0 .println(\cf5 "the month number "\cf2 +n+\cf5 " "\cf2 +\i finddays\i0 (n))\cf1 ;\line public static \cf2 String \cf3 finddays\cf2 (\cf1 int \cf2 n)\line\{\line     String days\cf1 ;\line     switch\cf2 (n)\line     \{\line         \cf1 case \cf6 1\cf2 :\line         \cf1 case \cf6 3\cf2 :\line         \cf1 case \cf6 5\cf2 :\line         \cf1 case \cf6 7\cf2 :\line         \cf1 case \cf6 8\cf2 :\line         \cf1 case \cf6 10\cf2 :\line         \cf1 case \cf6 12\cf2 :\line             days=\cf5 "has 31 days"\cf1 ;\line             break;\line         case \cf6 2\cf2 :\line             days=\cf5 "has 28 or 29 days"\cf1 ;\line             break;\line         case \cf6 4\cf2 :\line         \cf1 case \cf6 6\cf2 :\line         \cf1 case \cf6 9\cf2 :\line         \cf1 case \cf6 11\cf2 :\line             days=\cf5 "has 30 days"\cf1 ;\line             break;\line         default\cf2 :\line             days=\cf5 "invalid month number"\cf1 ;\line                     break;\line     \cf2\}\line     \cf1 return \cf2 days\cf1 ;\line\cf2\}\par
+\f0 output:\par
+enter the month number: \par
+9\par
+the month number 9 has 30 days\par
+\par
+10>Array\par
+\cf1\f1 package \cf2 com.torryharris\cf1 ;\line\line import \cf2 java.util.Scanner\cf1 ;\line\line public class \cf2 Main \{\line\line     \cf1 public static void \cf3 main\cf2 (String[] args) \{\line\line         System.\cf4\i out\cf2\i0 .println(\cf5 "enter the number of elements: "\cf2 )\cf1 ;\line         \cf2 Scanner se=\cf1 new \cf2 Scanner(System.\cf4\i in\cf2\i0 )\cf1 ;\line         int \cf2 n= se.nextInt()\cf1 ;\line         int\cf2 [] arr=\cf1 new int\cf2 [n]\cf1 ;\line         \cf2 System.\cf4\i out\cf2\i0 .println(\cf5 "enter the array elements:"\cf2 )\cf1 ;\line         for\cf2 (\cf1 int \cf2 i=\cf6 0\cf1 ;\cf2 i<n\cf1 ;\cf2 i++)\line         \{\line             arr[i]= se.nextInt()\cf1 ;\line         \cf2\}\line         \cf1 for\cf2 (\cf1 int \cf2 i=\cf6 0\cf1 ;\cf2 i<arr.\cf4 length\cf1 ;\cf2 i++)\line         \{\line             System.\cf4\i out\cf2\i0 .println(arr[i]+\cf5 " "\cf2 )\cf1 ;\line         \cf2\}\line         System.\cf4\i out\cf2\i0 .println(\cf5 "finding the sum of array elements:"\cf2 )\cf1 ;\line         int \cf2 sum=\cf6 0\cf1 ;\line         for\cf2 (\cf1 int \cf2 i=\cf6 0\cf1 ;\cf2 i<arr.\cf4 length\cf1 ;\cf2 i++)\line         \{\line             sum+=arr[i]\cf1 ;\line         \cf2\}\line         System.\cf4\i out\cf2\i0 .println(\cf5 "sum of array elements="\cf2 +sum)\cf1 ;\line         \cf2 se.close()\cf1 ;\line     \cf2\}\line\}\par
+\f0 output:\par
+enter the number of elements: \par
+5\par
+enter the array elements:\par
+12\par
+20\par
+30\par
+40\par
+50\par
+12 20 30 40 50\par
+(finding the sum of array elements:)\par
+sum of array elements=152\par
+\par
+\ul\b ASSIGNMENTS:\par
+\par
+\ulnone\b0 1> NESTED CONDITIONAL STATEMENTS(TURNERY OPERATORS)\par
+\f1 System.\cf4\i out\cf2\i0 .println(\cf5 "enter three numbers:"\cf2 )\cf1 ;\line\cf2 Scanner sc=\cf1 new \cf2 Scanner(System.\cf4\i in\cf2\i0 )\cf1 ;\line int \cf2 n1= sc.nextInt()\cf1 ;\line int \cf2 n2= sc.nextInt()\cf1 ;\line int \cf2 n3= sc.nextInt()\cf1 ;\line int \cf2 lar=(n1>n2)?((n1>n3)?n1:n2):((n2>n3)?n2:n3)\cf1 ;\line\cf2 System.\cf4\i out\cf2\i0 .println(\cf5 "largest number among "\cf2 +n1+ +n2+ +n3+\cf5 " is: "\cf2 +lar)\cf1 ;\par
+\cf2\f0 output:\par
+enter three numbers:\par
+13\par
+67\par
+234\par
+largest number among 1367234 is: 234\par
+\par
+2> INCREMENT AND DECREMENT:\par
+quetion:\par
+    int x = 3, y= 5, z=10\par
+   res1 = z+ ++y -y +z + ++x\par
+   res2 = ++z+ y -y +z + x++\par
+   res3 = z + ++y - y++ + ++z + ++x\par
+code:\par
+\cf1\f1 int \cf2 x = \cf6 3\cf1 , \cf2 y= \cf6 5\cf1 , \cf2 z=\cf6 10\cf1 ;\line int \cf2 res1 = z+ ++y -y +z + ++x\cf1 ;\line int \cf2 res2 = ++z+ y -y +z + x++\cf1 ;\line int \cf2 res3 = z + ++y - y++ + ++z + ++x\cf1 ;\line\cf2 System.\cf4\i out\cf2\i0 .println(\cf5 "res1="\cf2 +res1)\cf1 ;\line\cf2 System.\cf4\i out\cf2\i0 .println(\cf5 "res2="\cf2 +res2)\cf1 ;\line\cf2 System.\cf4\i out\cf2\i0 .println(\cf5 "res3="\cf2 +res3)\cf1 ;\par
+\f0 output:\par
+res1=24\par
+res2=26\par
+res3=29\f1\line\par
+\ul\b\f0 Assignment problems:\par
+\ulnone\b0 1. to find whether a given year is leap year not?\par
+\cf2\f1 Scanner sc=\cf1 new \cf2 Scanner(System.\cf4\i in\cf2\i0 )\cf1 ;\line\cf2 System.\cf4\i out\cf2\i0 .println(\cf5 "enter the year to check it is leap year or not:"\cf2 )\cf1 ;\line int \cf2 year= sc.nextInt()\cf1 ;\line if\cf2 ((year%\cf6 4\cf2 ==\cf6 0\cf2 ) && (year%\cf6 100\cf2 ==\cf6 0\cf2 ) && (year%\cf6 400\cf2 ==\cf6 0\cf2 ))\line\{\line     System.\cf4\i out\cf2\i0 .println(\cf5 "the entered year "\cf2 +year+\cf5 " is a leap year"\cf2 )\cf1 ;\line\cf2\}\line\cf1 else\line\cf2\{\line     System.\cf4\i out\cf2\i0 .println(\cf5 "the entered year "\cf2 +year+\cf5 " is not a leap year"\cf2 )\cf1 ;\line\cf2\}\par
+\f0 output:\par
+enter the year to check it is leap year or not:\par
+1998\par
+the entered year  is not a leap year\par
+enter the year to check it is leap year or not:\par
+2000\par
+the entered year 2000 is a leap year\f1\par
+\par
+\cf1\f0 2. 2. to find the amstrong number :\par
+\cf2\f1 Scanner sc=\cf1 new \cf2 Scanner(System.\cf4\i in\cf2\i0 )\cf1 ;\line\cf2 System.\cf4\i out\cf2\i0 .println(\cf5 "enter the number to check it is armstrong number or not:"\cf2 )\cf1 ;\line int \cf2 n= sc.nextInt()\cf1 ;\line int \cf2 sum=\cf6 0\cf1 ,\cf2 rem=\cf6 0\cf1 ,\cf2 count=\cf6 0\cf1 ,\cf2 Originnum=\cf6 0\cf1 ;\line\cf2 Originnum=n\cf1 ;\line while\cf2 (n!=\cf6 0\cf2 )\line\{\line     count++\cf1 ;\line     \cf2 n/=\cf6 10\cf1 ;\line\cf2\}\line n=Originnum\cf1 ;\line while\cf2 (n!=\cf6 0\cf2 )\line\{\line     rem=n%\cf6 10\cf1 ;\line   \cf2 sum+=Math.\i pow\i0 (rem\cf1 ,\cf2 count)\cf1 ;\line   \cf2 n/=\cf6 10\cf1 ;\line\cf2\}\line n=Originnum\cf1 ;\line if\cf2 (Originnum==sum)\line     System.\cf4\i out\cf2\i0 .println(\cf5 "entered number "\cf2 +n+\cf5 " is armstrong number"\cf2 )\cf1 ;\line else\line     \cf2 System.\cf4\i out\cf2\i0 .println(\cf5 "entered number "\cf2 +n+\cf5 " is not a armstrong number"\cf2 )\cf1 ;\par
+\f0 output:\par
+154\par
+entered number 154 is not a armstrong number\par
+153\par
+entered number 153 is armstrong number\par
+\par
+\b 3> to find a perfect number\par
+\cf2\b0\f1 Scanner sc=\cf1 new \cf2 Scanner(System.\cf4\i in\cf2\i0 )\cf1 ;\line\cf2 System.\cf4\i out\cf2\i0 .println(\cf5 "enter the number to check it is perfect number or not:"\cf2 )\cf1 ;\line int \cf2 n= sc.nextInt()\cf1 ;\line int \cf2 Originnum=n\cf1 ,\cf2 rem=\cf6 0\cf1 ,\cf2 sum=\cf6 0\cf1 ;\line while\cf2 (n!=\cf6 0\cf2 )\line\{\line     rem=n%\cf6 10\cf1 ;\line     \cf2 sum=\i sumOfFactors\i0 (rem)\cf1 ;\line     \cf2 n/=\cf6 10\cf1 ;\line\cf2\}\line\cf1 if\cf2 (sum==Originnum)\line     System.\cf4\i out\cf2\i0 .println(\cf5 "entered number "\cf2 +Originnum+\cf5 " is perfect number"\cf2 )\cf1 ;\line else\line     \cf2 System.\cf4\i out\cf2\i0 .println(\cf5 "entered number "\cf2 +Originnum+\cf5 " is not perfect number"\cf2 )\cf1 ;\par
+public static int  \cf3 sumOfFactors\cf2 (\cf1 int \cf2 n)\line\{\line     \cf1 int \cf2 sum=\cf6 0\cf1 ;\line     for\cf2 (\cf1 int \cf2 i=\cf6 1\cf1 ;\cf2 i<=n/\cf6 2\cf1 ;\cf2 i++)\line     \{\line         \cf1 if\cf2 (n%i==\cf6 0\cf2 )\line         \{\line             sum+=i\cf1 ;\line         \cf2\}\line     \}\line     \cf1 return \cf2 sum\cf1 ;\line\cf2\}\par
+\cf1\f0 output:\par
+enter the number to check it is perfect number or not:\par
+6\par
+entered number 6 is perfect number\par
+25\par
+entered number 25 is not perfect number\par
+\par
+4> to print multiplication table\par
+\cf2\f1 System.\cf4\i out\cf2\i0 .println(\cf5 "enter the number: "\cf2 )\cf1 ;\line int \cf2 n= sc.nextInt()\cf1 ;\line for\cf2 (\cf1 int \cf2 i=\cf6 1\cf1 ;\cf2 i<=\cf6 10\cf1 ;\cf2 i++)\line\{\line     System.\cf4\i out\cf2\i0 .println(\cf5 ""\cf2 +n+\cf5 "x"\cf2 +i+\cf5 "="\cf2 +i*n)\cf1 ;\line\cf2\}\par
+\cf1\f0 output:\par
+enter the number: \par
+5\par
+5x1=5\par
+5x2=10\par
+5x3=15\par
+5x4=20\par
+5x5=25\par
+5x6=30\par
+5x7=35\par
+5x8=40\par
+5x9=45\par
+5x10=50\par
+\par
+5>LCM and HCF of two given numbers. \par
+\cf2\f1 System.\cf4\i out\cf2\i0 .println(\cf5 "enter the two numbers:"\cf2 )\cf1 ;\line int \cf2 n1= sc.nextInt()\cf1 ;\line int \cf2 n2= sc.nextInt()\cf1 ;\line int \cf2 lcm=\cf6 0\cf1 ,\cf2 hcf=\cf6 0\cf1 ;\line\cf2 n1=(n1<n2)?n1:n2\cf1 ;\line\cf2 n2=(n2>n1)?n2:n1\cf1 ;\line for\cf2 (\cf1 int \cf2 i=\cf6 1\cf1 ;\cf2 i<=n1\cf1 ;\cf2 i++)\line\{\line     \cf1 if\cf2 ((n1%i==\cf6 0\cf2 ) && (n2%i==\cf6 0\cf2 ))\line     \{\line         hcf=i\cf1 ;\line     \cf2\}\line\}\line lcm=(n1/hcf)*n2\cf1 ;\line\cf2 System.\cf4\i out\cf2\i0 .println(\cf5 "hcf of "\cf2 +n1+\cf5 " and "\cf2 +n2+\cf5 " is="\cf2 +hcf)\cf1 ;\line\cf2 System.\cf4\i out\cf2\i0 .println(\cf5 "lcm of "\cf2 +n1+\cf5 " and "\cf2 +n2+\cf5 " is="\cf2 +lcm)\cf1 ;\line\par
+\f0 output:\par
+enter the two numbers:\par
+4\par
+8\par
+hcf of 4 and 8 is=4\par
+lcm of 4 and 8 is=8\par
+\par
+enter the two numbers:\par
+6\par
+8\par
+hcf of 6 and 8 is=2\par
+lcm of 6 and 8 is=24\par
+\par
+\par
+\par
+\f1\par
+\cf2\f0\fs20\par
+\par
+\par
+\par
+\par
+\f1\par
+\cf1\f0\par
+\par
+\f1\par
+\f0\par
+\f1\lang9\par
+
+\pard\sa200\sl276\slmult1\cf0\f0\fs22\par
+}
+ 
