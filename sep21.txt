@@ -1,0 +1,478 @@
+package com.torryharris;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+/*        for(int i=0;++i<=10;i++)
+        {
+            System.out.print(i+" ");
+        }
+        System.out.println("\n");
+        for(int i=0;i++<=10;i++)
+        {
+            System.out.print(i+" ");
+        }*/
+         output:
+        1 3 5 7 9 
+
+        1 3 5 7 9 11 
+
+
+        //finding the max and min element in the array
+        int[] arr={11,26,133,47,55};
+        int max=arr[0],min=arr[0];
+        for(int i=1;i<arr.length;i++)
+        {
+            if(arr[i]>max)
+            {
+                max=arr[i];
+            }
+            if(arr[i]<min)
+                min=arr[i];
+        }
+        System.out.println("maximum element in the array="+max);
+        System.out.println("minimum element in the array="+min);
+    }
+}
+ output:
+maximum element in the array=133
+minimum element in the array=11
+
+
+BUBBLE SORT:
+package com.torryharris;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        int[] arr={12,54,27,98,1};
+        for(int i=0;i<arr.length-1;i++)
+        {
+            for(int j=0;j<(arr.length-i-1);j++)
+
+            {
+                if(arr[j]>arr[j+1])
+                {
+                    int temp=arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
+                }
+            }
+        }
+        System.out.println("\n");
+        for(int i=0;i<arr.length;i++)
+        {
+            System.out.print(arr[i]+" ");
+        }
+    }
+}
+
+
+
+output:
+1 12 27 54 98 
+
+Command line Arguments:(Using command line arguments to gave input)
+
+package com.torryharris;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        //to find the sum of two numbers
+        String str1=args[0];
+        String str2=args[1];
+        int num1=Integer.parseInt(str1);
+        int num2=Integer.parseInt(str2);
+        System.out.println("sum="+(num1+num2));
+
+    }
+}
+ 
+output:
+sum=50
+
+
+Object Oriented programming:
+
+package com.torryharris;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter the details of the book1:");
+        int bookid1= sc.nextInt();
+        String bookName1=sc.next();
+        int bookprice1= sc.nextInt();
+        Book book1=new Book(bookid1,bookName1,bookprice1);
+        System.out.println(book1);
+
+        int bookid2= sc.nextInt();
+        String bookName2= sc.next();
+        int bookPrice2= sc.nextInt();
+        Book book2=new Book(bookid2,bookName2,bookPrice2);
+        System.out.println(book2);
+}}
+package com.torryharris;
+
+public class Book {
+    int bookID;
+    String bookName;
+    int bookPrice;
+
+    public Book(int bookID, String bookName, int bookPrice) {
+        this.bookID = bookID;
+        this.bookName = bookName;
+        this.bookPrice = bookPrice;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "bookID=" + bookID +
+                ", bookName='" + bookName + '\'' +
+                ", bookPrice=" + bookPrice +
+                '}';
+    }
+}
+
+
+output:
+enter the details of the book1:
+100
+java
+1000
+Book{bookID=100, bookName='java', bookPrice=1000}
+200
+HTML
+2000
+Book{bookID=200, bookName='HTML', bookPrice=2000}
+
+
+     Scanner sc=new Scanner(System.in);
+        System.out.println("enter the number of elements:");
+        int len= sc.nextInt();
+        Book[] bookarr =new Book[len];
+        for(int i=0;i<bookarr.length;i++)
+        {
+            System.out.println("entering the details of "+(i+1));
+            int bookid= sc.nextInt();
+            sc.nextLine();
+            String bookName= sc.nextLine();
+            int bookPrice= sc.nextInt();
+            bookarr[i]=new Book(bookid,bookName,bookPrice);
+        }
+        System.out.println("to print the book in the bookarray:");
+        for(int i=0;i<bookarr.length;i++)
+        {
+            System.out.println(bookarr[i]);
+        }
+package com.torryharris;
+
+public class Book {
+    int bookID;
+    String bookName;
+    int bookPrice;
+
+    public Book(int bookID, String bookName, int bookPrice) {
+        this.bookID = bookID;
+        this.bookName = bookName;
+        this.bookPrice = bookPrice;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "bookID=" + bookID +
+                ", bookName='" + bookName + '\'' +
+                ", bookPrice=" + bookPrice +
+                '}';
+    }
+}
+
+OUTPUT:
+enter the number of elements:
+3
+entering the details of 1
+100
+JAVA
+1000
+entering the details of 2
+200
+HTML
+20000
+entering the details of 3
+300
+C++
+3000
+to print the book in the bookarray:
+Book{bookID=100, bookName='JAVA', bookPrice=1000}
+Book{bookID=200, bookName='HTML', bookPrice=20000}
+Book{bookID=300, bookName='C++', bookPrice=3000}
+
+
+ENHANCED fOOR LOOP:
+        int[] arr1={1,3,2,5,2};
+        for(int t:arr1)
+        {
+            System.out.print(t+" ");
+        }
+
+
+
+OUTPUT:
+1 3 2 5 2 
+
+
+
+package com.torryharris;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        Customer c1=new Customer(100,"darshan marakall",2000,5);
+
+        System.out.println(c1);
+    }
+
+}
+package com.torryharris;
+
+public class Customer {
+
+    private int custid;
+    private String custname;
+    private int unitconsumed;
+    private int unitprice;
+
+    public Customer(int custid, String custname, int unitconsumed, int unitprice) {
+        this.custid = custid;
+        this.custname = custname;
+        this.unitconsumed = unitconsumed;
+        this.unitprice = unitprice;
+    }
+    private int calc_billamt()
+    {
+        return(unitconsumed*unitprice);
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "custid=" + custid +
+                ", custname='" + custname + '\'' +
+                ", unitconsumed=" + unitconsumed +
+                ", unitprice=" + unitprice+
+                " Bill amount:"+calc_billamt()+
+                '}';
+    }
+}
+
+output:
+Customer{custid=100, custname='darshan marakall', unitconsumed=2000, unitprice=5 Bill amount:10000}
+
+
+STUDENT ARRAY:
+
+package com.torryharris;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter the number of students:");
+        int n= sc.nextInt();
+        Student[] studentarr= new Student[n];
+        for(int i=0;i<n;i++) {
+            System.out.println("enter the details of student:"+(i+1));
+            int studentid = sc.nextByte();
+            String studentName = sc.next();
+            int studentregn = sc.nextInt();
+            int m1 = sc.nextInt();
+            int m2 = sc.nextInt();
+            int m3 = sc.nextInt();
+            studentarr[i]=new Student(studentid,studentName,studentregn,m1,m2,m3);
+        }
+        System.out.println("printing the details of student array:");
+        for(Student d:studentarr)
+        {
+            System.out.println(d);
+        }
+
+    }
+}
+package com.torryharris;
+
+public class Student {
+
+    int studentid;
+    String studentName;
+    long studentregn;
+    int m1;
+    int m2;
+    int m3;
+
+    public Student(int studentid, String studentName, long studentregn, int m1, int m2, int m3) {
+        this.studentid = studentid;
+        this.studentName = studentName;
+        this.studentregn = studentregn;
+        this.m1 = m1;
+        this.m2 = m2;
+        this.m3 = m3;
+    }
+    private int calc_percentage()
+    {
+        return((m1+m2+m3)/3);
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "studentid=" + studentid +
+                ", studentName='" + studentName + '\'' +
+                ", studentregn=" + studentregn +
+                ", m1=" + m1 +
+                ", m2=" + m2 +
+                ", m3=" + m3 +
+                "student percentage:"+calc_percentage()+
+                '}';
+    }
+}
+output:
+
+enter the number of students:
+3
+enter the details of student:1
+101
+darshan
+1001
+78
+89
+90
+enter the details of student:2
+102
+asheesh
+1002
+89
+87
+98
+enter the details of student:3
+103
+basavaraj
+1003
+79
+90
+99
+printing the details of student array:
+Student{studentid=101, studentName='darshan', studentregn=1001, m1=78, m2=89, m3=90student percentage:85}
+Student{studentid=102, studentName='asheesh', studentregn=1002, m1=89, m2=87, m3=98student percentage:91}
+Student{studentid=103, studentName='basavaraj', studentregn=1003, m1=79, m2=90, m3=99student percentage:89}
+
+
+KEB:customer array
+
+package com.torryharris;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter the number of customer:");
+        int len= sc.nextInt();
+        Customer[] customerarr=new Customer[len];
+        for(int i=0;i<customerarr.length;i++)
+        {
+            System.out.println("enter the details of the customer"+(i+1));
+            int custid= sc.nextInt();
+            sc.nextLine();
+            String custName= sc.nextLine();
+            int unitsconsumed= sc.nextInt();
+            int unitsPrice=sc.nextInt();
+            customerarr[i]=new Customer(custid,custName,unitsconsumed,unitsPrice);
+        }
+        System.out.println("details of all the customers:");
+        for(Customer c:customerarr)
+        {
+            System.out.println(c);
+        }
+    }
+}
+
+package com.torryharris;
+
+public class Customer {
+    int custid;
+    String custName;
+    int unitsconsumed;
+    int unitPrice;
+
+    public Customer(int custid, String custName, int unitsconsumed, int unitPrice) {
+        this.custid = custid;
+        this.custName = custName;
+        this.unitsconsumed = unitsconsumed;
+        this.unitPrice = unitPrice;
+    }
+    private int calc_billamt()
+    {
+        return(unitsconsumed*unitPrice);
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "custid=" + custid +
+                ", custName='" + custName + '\'' +
+                ", unitsconsumed=" + unitsconsumed +
+                ", unitPrice=" + unitPrice +
+                "Bill amount:"+calc_billamt()+
+                '}';
+    }
+}
+
+
+output:
+enter the number of customer:
+3
+enter the details of the customer1
+101
+darshan
+200
+5
+enter the details of the customer2
+102
+basavaraj
+300
+5
+enter the details of the customer3
+103
+asheesh
+400
+5
+details of all the customers:
+Customer{custid=101, custName='darshan', unitsconsumed=200, unitPrice=5Bill amount:1000}
+Customer{custid=102, custName='basavaraj', unitsconsumed=300, unitPrice=5Bill amount:1500}
+Customer{custid=103, custName='asheesh', unitsconsumed=400, unitPrice=5Bill amount:2000}
+
+
+
+
+
+
+
+
+
+
