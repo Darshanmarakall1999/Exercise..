@@ -1,0 +1,559 @@
+
+Equals and Hashcode method
+**********************
+package com.torryharris.Mydate;
+
+public class MyDate {
+
+    private int dd;
+    private int mm;
+    private int yy;
+
+    public MyDate(int dd, int mm, int yy) {
+        this.dd = dd;
+        this.mm = mm;
+        this.yy = yy;
+    }
+
+    @Override
+    public int hashCode() {
+        return(dd^mm^yy);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        MyDate d=(MyDate) obj;
+        if((this.dd==d.dd)&&(this.mm==d.mm)&&(this.yy==d.yy))
+            return true;
+        else
+            return false;
+
+    }
+
+    @Override
+    public String toString() {
+        return "MyDate{" +
+                "dd=" + dd +
+                ", mm=" + mm +
+                ", yy=" + yy +
+                '}';
+    }
+}
+package com.torryharris.mainpack;
+
+import com.torryharris.Mydate.MyDate;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        MyDate d1=new MyDate(27,9,2021);
+        MyDate d2=new MyDate(28,9,2021);
+        MyDate d3=d1;
+        MyDate d4=new MyDate(27,9,2021);
+        System.out.println(d1.equals(d2));
+        System.out.println(d1.hashCode());
+        System.out.println(d2.hashCode());
+        System.out.println(d1==d2);
+        System.out.println(d1==d3);
+        System.out.println(d1.hashCode());
+        System.out.println(d1.equals(d4));
+
+    }
+}
+
+output:
+false
+2039
+2032
+false
+true
+2039
+true
+********************************************************
+
+Collections Set;
+1>HashSet 2>LinkedHashSet 3>TreeSet
+
+package com.torryharris.mainpack;
+
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+	// write your code here
+        Set s1=new HashSet();
+        s1.add(1);//the method used to insert or add element in any collections is add();
+        s1.add(12.5);
+        s1.add("Java");
+        s1.add(null);
+        s1.add(12.1F);//s1 is considering all the  objects added as the object class
+        System.out.println(s1);
+        Set<String>s2= new HashSet<String>();
+        s2.add("aaa");
+        s2.add("xyz");
+        s2.add("aaa");
+        s2.add("xyza");
+        System.out.println(s2);
+
+        Set<String>s3=new LinkedHashSet<String>();
+        s3.add("aaa");
+        s3.add("xyz");
+        s3.add("aaa");
+        s3.add("pqr");
+        s3.add("mno");
+        System.out.println(s3);
+        //tree set
+        //it is sorted according to natural order;
+        Set<String>s4=new TreeSet<String>();
+        s4.add("shivakumar");
+        s4.add("aishwarya");
+        s4.add("tasmiya");
+        s4.add("varun");
+        s4.add("tasmiya");
+        System.out.println(s4);
+    }
+}
+output:
+[null, 1, Java, 12.5, 12.1]//HashSet
+[aaa, xyza, xyz]
+[aaa, xyz, pqr, mno]//LinkedHashSet
+[aishwarya, shivakumar, tasmiya, varun]//TreeSet
+
+******************************************************************************
+List:
+1>ArrayList  2>LinkedArrayList  3>Vector
+
+package com.torryharris.mainpack;
+
+import javax.swing.text.html.HTMLDocument;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        List<String>strlist=new ArrayList<String>();
+        strlist.add("Meera");
+        strlist.add("meri");
+        strlist.add("Arjun");
+        strlist.add("darshan");
+        strlist.add("Meera");
+        System.out.println(strlist);
+        //to insert an vale in the 1st index value;
+        strlist.add(1,"mahesh");
+        strlist.add(3,"bharatesh");
+        strlist.add(4,"asheesh");
+        System.out.println(strlist);
+        strlist.remove(4);//remove element at index value
+        System.out.println(strlist);
+        strlist.remove("Meera");//remove by object
+        System.out.println(strlist);
+        ArrayList<String>sublist=new ArrayList<String>();
+        sublist.add("one");
+        sublist.add("two");
+        sublist.add("three");
+        //merge two arraylist
+        strlist.addAll(2,sublist);
+        System.out.println(strlist);
+        //traditional for loop
+        for(int i=0;i<strlist.size();i++)
+        {
+            System.out.print(strlist.get(i)+" ");
+        }
+        //enhanced for loop
+        System.out.println();
+        for(String s:strlist)
+        {
+            System.out.print(s+" ");
+        }
+        System.out.println();
+        //Iterator-we can use iterator class for iterating any collections
+        Iterator<String> it=strlist.iterator();
+            while(it.hasNext())
+                System.out.print(it.next().toUpperCase(Locale.ROOT)+" ");
+        System.out.println();
+        System.out.println(strlist);
+output:
+[mahesh, meri, bharatesh, Arjun, darshan, Meera]
+[mahesh, meri, one, two, three, bharatesh, Arjun, darshan, Meera]
+mahesh meri one two three bharatesh Arjun darshan Meera 
+mahesh meri one two three bharatesh Arjun darshan Meera 
+MAHESH MERI ONE TWO THREE BHARATESH ARJUN DARSHAN MEERA 
+[mahesh, meri, one, two, three, bharatesh, Arjun, darshan, Meera]
+
+/////////////
+Scanner sc=new Scanner(System.in);
+        System.out.println("enter the number of elements:");
+        int n1= sc.nextInt();
+        ArrayList<Integer> ilist=new ArrayList<Integer>(n1);
+        for(int i=0;i<n1;i++)
+        {
+            System.out.println("enter the element"+(i+1));
+            int e= sc.nextInt();
+            ilist.add(e);
+        }
+        int sum=0;
+        Iterator<Integer> it2=ilist.iterator();
+        while(it2.hasNext()) {
+            int ele= it2.next();
+            System.out.print(ele+" ");
+            sum += ele;
+        }
+        System.out.println("sum="+sum);
+        sc.close();
+output:
+enter the number of elements:
+5
+enter the element1
+12
+enter the element2
+13
+enter the element3
+14
+enter the element4
+15
+enter the element5
+16
+12 13 14 15 16 sum=70
+////////////////////////////////////////
+package com.torryharris.mainpack;
+
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        List<String> l1=new LinkedList<>();
+        l1.add("oranges");
+        l1.add("apples");
+        l1.add("Oranges");
+        l1.add("graphes");
+        System.out.println("IS EMPTY? "+ l1.isEmpty());
+        System.out.println("contains grapes? "+l1.contains("graphes"));
+
+        ListIterator<String> it=l1.listIterator();
+        System.out.println("in forward direction:");
+        while(it.hasNext())
+        {
+            System.out.print(it.next()+" ");
+        }
+        System.out.println();
+        System.out.println("in backward direction");
+        while(it.hasPrevious())
+        {
+            System.out.print(it.previous()+" ");
+        }
+        System.out.println();
+        Collections.reverse(l1);
+        System.out.println(l1);
+        Collections.sort(l1);
+        System.out.println(l1);
+
+    }
+}
+output:
+[oranges, apples, Oranges, graphes]
+IS EMPTY? false
+contains grapes? true
+in forward direction:
+oranges apples Oranges graphes 
+in backward direction
+graphes Oranges apples oranges 
+[graphes, Oranges, apples, oranges]
+[Oranges, apples, graphes, oranges]
+////////////////////////////////////////////////////////
+package com.torryharris.mainpack;
+
+import javax.swing.text.html.HTMLDocument;
+import java.util.Collections;
+import java.util.Enumeration;
+import java.util.Iterator;
+import java.util.Vector;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+
+        Vector<String> v1=new Vector<String>();
+        v1.add("darshan");
+        v1.add("asheesh");
+        v1.add("desai");
+        v1.add("varun");
+        System.out.println(v1);
+        v1.add(2,"darshan");
+        System.out.println(v1);
+        Enumeration<String> en=v1.elements();
+        while(en.hasMoreElements())
+        {
+            System.out.print(en.nextElement()+" ");
+        }
+        System.out.println();
+        Collections.reverse(v1);
+        System.out.println(v1);
+        Collections.sort(v1);
+        System.out.println(v1);
+        Iterator<String> it=v1.iterator();
+        while(it.hasNext())
+        {
+            System.out.print(it.next()+" ");
+        }
+
+
+    }
+}
+output:
+[darshan, asheesh, desai, varun]
+[darshan, asheesh, darshan, desai, varun]
+darshan asheesh darshan desai varun 
+[varun, desai, darshan, asheesh, darshan]
+[asheesh, darshan, darshan, desai, varun]
+asheesh darshan darshan desai varun
+///////////////////////////////////////////////////////////////
+Stacks:
+package com.torryharris.mainpack;
+
+import java.util.Stack;
+import java.util.Vector;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+       // Vector<String> st=new Stack<String>();
+        Stack<String> st=new Stack<String>();
+        st.push("darshan");
+        st.push("basavaraj");
+        st.push("bharatesh");
+        System.out.println(st);
+        System.out.println(st.pop());//statck last in last out(remove th elements from the statck)
+        System.out.println(st.peek());//display top most element , not removed
+        System.out.println(st);
+        //add,contains,search
+        st.add("marakall");
+        System.out.println(st);
+        System.out.println(st.peek());
+        st.add(1,"asheesh");
+        System.out.println(st);
+        System.out.println(st.search("asheesh"));//position of the element from top(from last)
+        System.out.println(st.search("marakall"));
+        System.out.println(st.contains("asheesh"));
+
+    }
+}
+output:
+[darshan, basavaraj, bharatesh]
+bharatesh
+basavaraj
+[darshan, basavaraj]
+[darshan, basavaraj, marakall]
+marakall
+[darshan, asheesh, basavaraj, marakall]
+3
+1
+true
+///////////////////////////////
+Queues:
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        Queue<String> q=new LinkedList<String>();
+        q.add("darshan");
+        q.add("asheesh");
+        q.add("bharatesh");
+        System.out.println(q);
+        System.out.println(q.poll());
+        System.out.println(q);
+        System.out.println(q.peek());
+        q.add("marakall");
+        System.out.println(q.contains("marakall"));
+        System.out.println(q);
+        System.out.println(q.remove());
+    }
+}
+output:
+[darshan, asheesh, bharatesh]
+darshan
+[asheesh, bharatesh]
+asheesh
+true
+[asheesh, bharatesh, marakall]
+asheesh
+////////////////////////////////////////////////
+Map:
+1>HashMap 2>LinkedHashMap  3>TreeMap
+
+Map<Integer, String> hm = new HashMap<Integer, String>();//Map is base class
+        //the method used to insert object is hashmap
+        //put() method
+        hm.put(100, "books");
+        hm.put(200, "papers");
+        hm.put(300, "pens");
+        hm.put(null, null);
+        hm.put(350, null);
+        hm.put(150,"doors");
+        //put method only one key null is allowed
+        System.out.println(hm);
+        System.out.println(hm.keySet());
+        System.out.println(hm.values());
+        System.out.println(hm.entrySet());
+        System.out.println(hm.get(150));
+output:
+
+{null=null, 100=books, 150=doors, 200=papers, 300=pens, 350=null}
+[null, 100, 150, 200, 300, 350]
+[null, books, doors, papers, pens, null]
+[null=null, 100=books, 150=doors, 200=papers, 300=pens, 350=null]
+doors
+///////////
+ Map<Integer, String> lhm = new LinkedHashMap<Integer,String>();//Map is base class
+        //the method used to insert object is hashmap
+        //put() method
+        lhm.put(100, "books");
+        lhm.put(200, "papers");
+        lhm.put(300, "pens");
+        lhm.put(null, null);
+        lhm.put(350, null);
+        lhm.put(150,"doors");
+        //put method only one key null is allowed
+        System.out.println(lhm);
+        System.out.println(lhm.keySet());
+        System.out.println("value at key=350="+lhm.get(350));
+output:
+
+{100=books, 200=papers, 300=pens, null=null, 350=null, 150=doors}
+[100, 200, 300, null, 350, 150]
+value at key=350=null
+////////////////////
+
+Map<Integer, String> tm = new TreeMap<Integer,String>();//Map is base class
+        //the method used to insert object is hashmap
+        //put() method
+        tm.put(790, "books");
+        tm.put(200, "papers");
+        tm.put(900, "pens");
+        tm.put(800, null);
+        tm.put(350, null);
+        tm.put(750,"doors");
+        //null key value is not allowed
+        System.out.println(tm);
+output:
+{200=papers, 350=null, 750=doors, 790=books, 800=null, 900=pens}
+/////////////////////////
+   Map<Integer, String> ht = new Hashtable<Integer,String>();//Map is base class
+        //the method used to insert object is hashmap
+        //put() method
+        ht.put(100, "books");
+        ht.put(200, "papers");
+        ht.put(300, "pens");
+        ht.put(390, "book1");
+        ht.put(350, "pap");
+        ht.put(150,"doors");
+        //null key and null values are not allowed in Hashtable,unsorted,not followed order of insertion;
+        System.out.println(ht);
+output:
+{350=pap, 150=doors, 390=book1, 300=pens, 200=papers, 100=books}
+////////////////////////
+Application of Map:
+package com.torryharris.mainpack;
+
+import com.torryharris.Customerpack.Customer;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        //product store:
+        //which can holds the name and its price
+        //thefore i am adapting map ie key-value pair;
+        Map<String,Integer> hm=new LinkedHashMap<String,Integer>();
+        hm.put("sofa",5000);
+        hm.put("table",3000);
+        hm.put("lamp",2000);
+        hm.put("lampshades",3000);
+        System.out.println("keys:");
+        System.out.println(hm.keySet());
+        System.out.println("values:");
+        System.out.println(hm.values());
+        System.out.println("together key and values");
+        System.out.println(hm.entrySet());
+        System.out.println("printing the map elements using for loop:");
+        for(String key:hm.keySet())
+        {
+            System.out.println(key+"  "+hm.get(key));
+        }
+        int totalAmt=0;
+        for(String key:hm.keySet())
+        {
+            totalAmt+=hm.get(key);
+        }
+        System.out.println("Total investment is="+totalAmt);
+output:
+keys:
+[sofa, table, lamp, lampshades]
+values:
+[5000, 3000, 2000, 3000]
+together key and values
+[sofa=5000, table=3000, lamp=2000, lampshades=3000]
+printing the map elements using for loop:
+sofa  5000
+table  3000
+lamp  2000
+lampshades  3000
+Total investment is=13000
+////////////////
+
+package com.torryharris.Customerpack;
+
+public class Customer {
+    private int id;
+    private String name;
+
+    public Customer(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
+}
+Map<Customer,Integer> custmap=new LinkedHashMap<Customer,Integer>();
+        custmap.put(new Customer(10,"Rounak"),10000);
+        custmap.put(new Customer(20,"Darshan"),7000);
+        custmap.put(new Customer(30,"Amir"),15000);
+        for(Customer cust:custmap.keySet())
+        {
+            System.out.println(cust+"   "+custmap.get(cust));
+        }
+        int Tsalesamt=0;
+        for(Customer cust:custmap.keySet())
+        {
+            Tsalesamt+=custmap.get(cust);
+        }
+        System.out.println("Total sales amount:"+Tsalesamt);
+output:
+Customer{id=10, name='Rounak'}   10000
+Customer{id=20, name='Darshan'}   7000
+Customer{id=30, name='Amir'}   15000
+Total sales amount:32000
+
+
+
+
+
