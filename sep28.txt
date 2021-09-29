@@ -1,0 +1,678 @@
+Prioritise the object (Queue)
+*******************************
+package com.torryharris.ipack;
+
+public class Item implements Comparable<Item>{
+    private int id;
+    private String ItemName;
+
+    public Item(int id, String itemName) {
+        this.id = id;
+        ItemName = itemName;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getItemName() {
+        return ItemName;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id=" + id +
+                ", ItemName='" + ItemName + '\'' +
+                '}';
+    }
+/*//the least id value will be giving more priority!!!!!!!!!!
+    @Override
+    public int compareTo(Item o) {
+        if(id>o.id)
+            return 1;
+        else
+            if(id==o.id)
+                return 0;
+            else
+                return -1;
+    }*/
+//the Highest id value will be giving more priority!!!!!!!!!!
+        @Override
+        public int compareTo(Item o) {
+            if(id>o.id)
+                return -1;
+            else
+            if(id==o.id)
+                return 0;
+            else
+                return 1;
+        }
+}
+package com.torryharris.mainpack;
+
+import com.torryharris.ipack.Item;
+
+import java.util.PriorityQueue;
+import java.util.Queue;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        Queue<Item> pq=new PriorityQueue<Item>();
+        pq.add(new Item(6,"Java"));
+        pq.add(new Item(19,"HTML"));
+        pq.add(new Item(8,"Python"));
+        pq.add(new Item(3,"C++"));
+        pq.add(new Item(9,"Ama"));
+        for(Item i:pq)
+            System.out.println(i);
+        System.out.println();
+        System.out.println(pq.poll());
+        System.out.println("***************");
+        for(Item i:pq)
+            System.out.println(i);
+        pq.poll();
+        System.out.println("********");
+        for(Item i:pq)
+            System.out.println(i);
+        pq.poll();
+        System.out.println("***************");
+        for(Item i:pq)
+            System.out.println(i);
+    }
+}
+output:
+Item{id=90, ItemName='Java'}
+Item{id=87, ItemName='C++'}
+Item{id=89, ItemName='Python'}
+Item{id=67, ItemName='HTML'}
+Item{id=45, ItemName='Ama'}
+
+Item{id=90, ItemName='Java'}
+***************
+Item{id=89, ItemName='Python'}
+Item{id=87, ItemName='C++'}
+Item{id=45, ItemName='Ama'}
+Item{id=67, ItemName='HTML'}
+********
+Item{id=87, ItemName='C++'}
+Item{id=67, ItemName='HTML'}
+Item{id=45, ItemName='Ama'}
+***************
+Item{id=67, ItemName='HTML'}
+Item{id=45, ItemName='Ama'}
+***********************************************************
+//////////////////////////////////////////////////////
+Prioritise the object ie sort the objects wrt to name and age
+
+package com.torryharris.comparatorpack;
+
+import com.torryharris.ppack.Person;
+
+import java.util.Comparator;
+
+public class AgeComparator implements Comparator<Person> {
+
+    @Override
+    public int compare(Person p1, Person p2) {
+        if(p1.getAge()>p2.getAge())
+            return 1;
+        else
+            if(p1.getAge()==p2.getAge())
+                return 0;
+            else
+                return -1;
+
+    }
+}
+package com.torryharris.ppack;
+
+import java.util.Comparator;
+
+public class Person {
+    private int id;
+    private String name;
+    private int age;
+
+    public Person(int id, String name, int age) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
+
+
+}
+package com.torryharris.comparatorpack;
+
+import com.torryharris.ppack.Person;
+
+import java.util.Comparator;
+
+public class NameComparator implements Comparator<Person> {
+
+    @Override
+    public int compare(Person p1, Person p2) {
+        return(p1.getName().compareTo(p2.getName()));
+    }
+}
+import java.util.Collections;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        ArrayList<Person> plist=new ArrayList<Person>();
+        plist.add(new Person(10,"Darshan",28));
+        plist.add(new Person(30,"Asheesh",20));
+        plist.add(new Person(15,"Bharamappa",18));
+        plist.add(new Person(20,"Bharatesh",29));
+        plist.add(new Person(50,"Varun",24));
+        System.out.println(plist);
+        Collections.sort(plist,new AgeComparator());
+        System.out.println(plist);
+
+        Collections.sort(plist,new NameComparator());
+        System.out.println(plist);
+    }
+}
+output:
+[Person{id=10, name='Darshan', age=28}, Person{id=30, name='Asheesh', age=20}, Person{id=15, name='Bharamappa', age=18}, Person{id=20, name='Bharatesh', age=29}, Person{id=50, name='Varun', age=24}]
+[Person{id=15, name='Bharamappa', age=18}, Person{id=30, name='Asheesh', age=20}, Person{id=50, name='Varun', age=24}, Person{id=10, name='Darshan', age=28}, Person{id=20, name='Bharatesh', age=29}]
+[Person{id=30, name='Asheesh', age=20}, Person{id=15, name='Bharamappa', age=18}, Person{id=20, name='Bharatesh', age=29}, Person{id=10, name='Darshan', age=28}, Person{id=50, name='Varun', age=24}]
+**********************************************************************8
+
+package com.torryharris.spack;
+
+public class Student implements Comparable<Student> {
+    private int id;
+    private String name;
+    private int marks;
+
+    public Student(int id, String name, int marks) {
+        this.id = id;
+        this.name = name;
+        this.marks = marks;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", marks=" + marks +
+                '}';
+    }
+
+    /*@Override
+    //Ascending order
+    public int compareTo(Student s) {
+        if(marks>s.marks)
+            return 1;
+        else
+            if(marks==s.marks)
+                return 0;
+            else
+                return -1;*/
+    @Override
+    //Descending order of marks
+    public int compareTo(Student s) {
+        if (marks > s.marks)
+            return -1;
+        else if (marks == s.marks)//if marks are same then sort ascending wrt ids
+        {
+            if(id>s.id)
+                return 1;
+            else
+                if(id==s.id)
+                    return 0;
+                else
+                    return -1;
+
+        }
+        else
+            return 1;
+    }
+}
+package com.torryharris.mainpack;
+
+import com.torryharris.spack.Student;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        ArrayList<Student> s1=new ArrayList<Student>();
+        s1.add(new Student(70,"Darshan",65));
+        s1.add(new Student(20,"Asheesh",85));
+        s1.add(new Student(30,"Basavaraj",65));
+        s1.add(new Student(40,"Praddep",57));
+        s1.add(new Student(50,"Bharatesh",55));
+        System.out.println("printing before sorting:");
+        for(Student s:s1)
+        {
+            System.out.println(s);
+        }
+        System.out.println("printing after sort:");
+        Collections.sort(s1);
+        for(Student s:s1)
+        {
+            System.out.println(s);
+        }
+
+    }
+}
+output:
+printing before sorting:
+Student{id=70, name='Darshan', marks=65}
+Student{id=20, name='Asheesh', marks=85}
+Student{id=30, name='Basavaraj', marks=65}
+Student{id=40, name='Praddep', marks=57}
+Student{id=50, name='Bharatesh', marks=55}
+printing after sort:(sorting by marks in descending order)
+Student{id=20, name='Asheesh', marks=85}
+Student{id=30, name='Basavaraj', marks=65}
+Student{id=70, name='Darshan', marks=65}
+Student{id=40, name='Praddep', marks=57}
+Student{id=50, name='Bharatesh', marks=55}
+*************************************************
+Generic class:
+package com.torryharris.gpack;
+
+public class Product {
+    private int id;
+    private String name;
+
+    public Product(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
+}
+package com.torryharris.gpack;
+
+public class Test<T,U> {
+    private T ob1;
+    private U ob2;
+
+    public Test(T ob1, U ob2) {
+        this.ob1 = ob1;
+        this.ob2 = ob2;
+    }
+
+    @Override
+    public String toString() {
+        return "Test{" +
+                "ob1=" + ob1 +
+                ", ob2=" + ob2 +
+                '}';
+    }
+
+    public T getOb1() {
+        return ob1;
+    }
+
+    public U getOb2() {
+        return ob2;
+    }
+package com.torryharris.mainpack;
+
+import com.torryharris.gpack.Product;
+import com.torryharris.gpack.Test;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        Test<String,String> tob=new Test<String, String>("Hello","World");
+        System.out.println(tob);
+        Test<String,Integer> tob1=new Test<String, Integer>("Darshan",101);
+        System.out.println(tob1);
+
+        Test<Integer, Product>tob2=new Test<Integer,Product>(101,new Product(100,"sofa"));
+        System.out.println(tob2);
+
+    }
+}
+}
+output:
+
+Test{ob1=Hello, ob2=World}
+Test{ob1=Darshan, ob2=101}
+Test{ob1=101, ob2=Product{id=100, name='sofa'}}
+*************************************************************************
+
+JUNIT:
+public class NumberIsEvenOrOdd {
+
+    public boolean IsEvenNumber(int num)
+    {
+        if(num%2==0)
+            return true;
+        return false;
+    }
+}
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
+public class EvenOddTest {
+
+    @Test
+    public void test1()
+    {
+        NumberIsEvenOrOdd n1=new NumberIsEvenOrOdd();
+        assertEquals(true,n1.IsEvenNumber(12));
+    }
+
+    @Test
+    public void test2()
+    {
+        NumberIsEvenOrOdd n2=new NumberIsEvenOrOdd();
+        assertEquals(false,n2.IsEvenNumber(11));
+    }
+
+
+}
+output:
+test1: passed
+test2: passed
+***************************************************************************
+public class MessageUtil {
+
+    private String message;
+
+    public MessageUtil(String message) {
+        this.message = message;
+    }
+
+    @Override
+    public String toString() {
+        return "MessageUtil{" +
+                "message='" + message + '\'' +
+                '}';
+    }
+    public String printMessage()
+    {
+        System.out.println(message);
+        return(message);
+    }
+    public String salutationMessage()
+    {
+        message="Hello!!"+message;
+        System.out.println(message);
+        return(message);
+    }
+
+}
+import org.junit.Test;
+
+import static junit.framework.Assert.assertEquals;
+
+public class Test1 {
+
+    String message="Robbert";
+    MessageUtil mob=new MessageUtil(message);
+
+
+    @Test
+    public void test1()
+    {
+        System.out.println("inside test1 testing printMessage method:");
+        assertEquals(message,mob.printMessage());
+    }
+
+
+}
+import org.junit.Test;
+
+import static junit.framework.Assert.assertEquals;
+
+public class Test2 {
+
+
+    String message="Robbert";
+    MessageUtil mob=new MessageUtil(message);
+
+
+    @Test
+    public void test2()
+    {
+        System.out.println("inside test1 testing  printMessage method:");
+        message="Hello!!"+message;
+        assertEquals(message,mob.salutationMessage());
+    }
+}
+
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+@RunWith(Suite.class)
+@Suite.SuiteClasses(
+        {
+                Test1.class,
+                Test2.class
+        }
+)
+public class TestSuite {
+
+}
+output:
+inside test1 testing printMessage method:
+Robbert
+inside test1 testing  printMessage method:
+Hello!!Robbert
+test1 and test2 are passed:
+**********************************************
+File handling
+
+package com.torryharris.mainpack;
+
+import java.io.File;
+import java.io.IOException;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+	// write your code here
+        File file1=new File("C:\\Users\\darshan_marakall\\Desktop","thfile3");
+        try {
+            file1.createNewFile();
+            System.out.println("File1 created successfully!!!!!!!!!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        File dir=new File("C:\\Users\\darshan_marakall\\Downloads");
+        File[] fileList=dir.listFiles();
+        for(File f:fileList)
+        {
+            if(f.isFile())
+                System.out.println(f.getName());
+        }
+    }
+}
+output:
+
+File1 created successfully!!!!!!!!!
+adhar card.png
+date functions...rtf
+desktop.ini
+Documents - Shortcut.lnk
+ideaIC-2021.2.2.exe
+java_assignement_1.txt
+Jenkins presentation.pptx
+MicrosoftTeams-image (1).png
+MicrosoftTeams-image (10).png
+MicrosoftTeams-image (11).png
+MicrosoftTeams-image (12).png
+MicrosoftTeams-image (13).png
+MicrosoftTeams-image (14).png
+MicrosoftTeams-image (2).png
+MicrosoftTeams-image (3).png
+MicrosoftTeams-image (4).png
+MicrosoftTeams-image (5).png
+MicrosoftTeams-image (6).png
+MicrosoftTeams-image (7).png
+MicrosoftTeams-image (8).png
+MicrosoftTeams-image (9).png
+MicrosoftTeams-image.png
+pan card.png
+PUSH & PULL.odt
+Teams_windows_x64.exe
+Unconfirmed 606524.crdownload
+Unix commands and shell script.odt
+Unix_commands-Shell_script1.odt
+******************************************************
+File f1 = new File("C:\\\\Users\\\\darshan_marakall\\\\Desktop\\thfile1.txt");
+        try (FileReader fr = new FileReader(f1);
+             BufferedReader br = new BufferedReader(fr);) {
+            String str1;
+            str1 = br.readLine();
+            while (!str1.equals("end")) {
+                System.out.println(str1);
+                str1 = br.readLine();
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+output:
+start
+Good morning
+good evening
+good night
+*****************************************
+File f1 = new File("C:\\\\Users\\\\darshan_marakall\\\\Desktop\\thfile1.txt");
+        try (FileReader fr = new FileReader(f1);
+             BufferedReader br = new BufferedReader(fr);) {
+            String str;
+            while((str=br.readLine())!=null)
+            {
+                System.out.println(str);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+output:
+start
+Good morning
+good evening
+good night
+end
+*****************************************************************************
+package com.torryharris.tpack;
+
+import java.util.List;
+
+public class Test {//here we are setting the upper bound to number
+
+    public static Number SumOfArray(List<? extends Number>nlist)
+        {
+            double s=0.0;
+            for(Number n:nlist)
+            {
+                s+=n.doubleValue();
+            }
+            return s;
+        }
+
+    //here we are setting the lower bound to to double
+    public static Number SumOfArray1(List<? super Double> llist)
+    {
+        double s=0.0;
+        for(Object n:llist)
+        {
+            s+=((Number)n).doubleValue();
+        }
+        return s;
+    }
+    //unbounded
+    public static Number SumOfArray2(List<?>dlist)
+    {
+        double s=0.0;
+        for(Object n:dlist)
+        {
+            s+=((Number)n).doubleValue();
+        }
+        return s;
+    }
+}
+package com.torryharris.mainpack;
+
+import com.torryharris.tpack.Test;
+
+import javax.swing.text.TabExpander;
+import java.util.ArrayList;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+
+        ArrayList<Integer> ilist=new ArrayList<>();
+        ilist.add(10);
+        ilist.add(10);
+        ilist.add(10);
+        ilist.add(10);
+        ilist.add(10);
+        ilist.add(10);
+        System.out.println(Test.SumOfArray(ilist));
+
+        ArrayList<Double> dlist1=new ArrayList<Double>();
+        dlist1.add(10.0);
+        dlist1.add(10.0);
+        dlist1.add(10.0);
+        dlist1.add(10.0);
+        dlist1.add(10.0);
+        System.out.println(Test.SumOfArray1(dlist1));
+
+        ArrayList<Object> ob=new ArrayList<Object>();
+        ob.add(100.00);
+        ob.add(200.00);
+        ob.add(300.00);
+        System.out.println(Test.SumOfArray2(ob));
+    }
+}
+output:
+60.0
+50.0
+600.0
