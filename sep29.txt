@@ -1,0 +1,398 @@
+package com.torryharris.mainpack;
+
+import java.io.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        File file1=new File("C:\\Users\\darshan_marakall\\Desktop\\thfile1.txt");
+        File file2=new File("C:\\Users\\darshan_marakall\\Desktop\\file4.txt");
+        try(FileInputStream fi=new FileInputStream(file1);
+            BufferedInputStream bi=new BufferedInputStream(fi);
+            FileOutputStream fo=new FileOutputStream(file2);
+            BufferedOutputStream bo=new BufferedOutputStream(fo);)
+        {
+            int b;
+            while((b=bi.read())!=-1)
+            {
+                System.out.print((char)b);
+                bo.write(b);
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+output:
+start
+Good morning
+good evening
+good night
+end
+Java is a programming language
+it is object oriented language
+////////////////////////////////////////////////////////////////
+package com.torryharris.mainpack;
+
+import java.io.*;
+import java.nio.Buffer;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        File file1=new File("C:\\Users\\darshan_marakall\\Desktop\\thfile1.txt");
+        File file2=new File("C:\\Users\\darshan_marakall\\Desktop\\file4.txt");
+        try(FileInputStream fi=new FileInputStream(file1);
+            BufferedInputStream bi=new BufferedInputStream(fi);
+            FileOutputStream fo=new FileOutputStream(file2,true);
+            BufferedOutputStream bo=new BufferedOutputStream(fo);)
+        {
+            byte[] barr=new byte[fi.available()];
+            bi.read(barr);
+            bo.write(barr);
+            for(byte b:barr)
+            {
+                System.out.print((char)b);
+            }
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+output:
+start
+Good morning
+good evening
+good night
+end
+Java is a programming language
+it is object oriented language
+*******************************************************************************
+import com.torryharris.ppack.Person;
+
+import java.io.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        File file4=new File("C:\\Users\\darshan_marakall\\Desktop\\thfile7.txt");//Destination
+
+        try(FileOutputStream fo=new FileOutputStream(file4);
+            ObjectOutputStream oo=new ObjectOutputStream(fo);
+
+            FileInputStream fi=new FileInputStream(file4);
+            ObjectInputStream oi=new ObjectInputStream(fi);)
+        {
+            Person p1=new Person(10,"darshan",10000);
+            oo.writeObject(p1);
+            Person p2=new Person(20,"asheesh",20000);
+            oo.writeObject(p2);
+            System.out.println("Person records added in file4!!1");
+
+            while(fi.available()>0)
+            {
+                Person person=(Person) oi.readObject();
+                System.out.println(person);
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+}
+package com.torryharris.ppack;
+
+import java.io.Serializable;
+
+public class Person implements Serializable {
+    private int id;
+    private String name;
+    private int sal;
+
+    public Person(int id, String name, int sal) {
+        this.id = id;
+        this.name = name;
+        this.sal = sal;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", sal=" + sal +
+                '}';
+    }
+}
+output:
+Person records added in file4!!1
+Person{id=10, name='darshan', sal=10000}
+Person{id=20, name='asheesh', sal=20000}
+****************************************************************************************
+*********************************************************
+Project:BookStore Application
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+package model;
+
+public class Book {
+    private int bookId;
+    private String bookName;
+    private int bookPrice;
+
+    public Book(int bookId, String bookName, int bookPrice) {
+        this.bookId = bookId;
+        this.bookName = bookName;
+        this.bookPrice = bookPrice;
+    }
+
+    public void setBookPrice(int bookPrice) {
+        this.bookPrice = bookPrice;
+    }
+
+    public int getBookId() {
+        return bookId;
+    }
+
+    public String getBookName() {
+        return bookName;
+    }
+
+    public int getBookPrice() {
+        return bookPrice;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "bookId=" + bookId +
+                ", bookName='" + bookName + '\'' +
+                ", bookPrice=" + bookPrice +
+                '}';
+    }
+}
+import java.util.ArrayList;
+
+public interface BookOperations {
+
+    String AddABook(Book book);
+    ArrayList<Book> getAllBooks();
+    Book getABook(int bookId);
+    String setBookPrice(int bookId,int updatedPrice);
+
+}
+package bookoperation;
+
+import model.Book;
+
+import java.util.ArrayList;
+
+public class BookOpeartionImpl implements BookOperations{
+    private ArrayList<Book> blist=new ArrayList<Book>();
+
+    @Override
+    public String AddABook(Book book) {
+        blist.add(book);
+        return "Book added successfully!!!!!";
+    }
+
+    @Override
+    public ArrayList<Book> getAllBooks() {
+        return blist;
+    }
+
+    @Override
+    public  Book getABook(int bookId) {
+        for(Book book:blist)
+        {
+            if(book.getBookId()==bookId)
+                return book;
+        }
+        return null;
+    }
+
+    @Override
+    public String setBookPrice(int bookId, int updatedPrice) {
+        Book book=getABook(bookId);
+        book.setBookPrice(updatedPrice);
+        return "Book price updated successfully!!!!1 ";
+    }
+}
+package mainuipack;
+import bookoperation.BookOpeartionImpl;
+import model.Book;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class BookStoreMain {
+    public static void main(String[] args)
+    {
+        BookOpeartionImpl boi=new BookOpeartionImpl();
+        Scanner sc=new Scanner(System.in);
+        while(true)
+        {
+            System.out.println("1.add a Book");
+            System.out.println("2.List all the Books");
+            System.out.println("3.Get a Book");
+            System.out.println("4.Update a Book Price");
+            System.out.println("5.Exit");
+
+            System.out.println("Enter your choice:");
+            int Choice= sc.nextInt();
+            switch(Choice)
+            {
+                case 1:
+                {
+                    System.out.println("Enter the details of the book:");
+                    int BookId=sc.nextInt();
+                    String BookName=sc.next();
+                    int BookPrice=sc.nextInt();
+                    Book book=new Book(BookId,BookName,BookPrice);
+                    System.out.println(boi.AddABook(book));
+                    break;
+                }
+                case 2:
+                {
+                    ArrayList<Book> blist=boi.getAllBooks();
+                    for(Book b:blist)
+                    {
+                        System.out.println(b);
+                    }
+                    break;
+                }
+                case 3:
+                {
+                    System.out.println("Enter the bookId:");
+                    int bookId= sc.nextInt();
+                    Book book= boi.getABook(bookId);
+                    System.out.println(book);
+                    break;
+                }
+                case 4:
+                {
+                    System.out.println("Enter the book id and update Price:");
+                    int bookId= sc.nextInt();
+                    int price= sc.nextInt();
+                    System.out.println(boi.setBookPrice(bookId,price));
+
+                    break;
+                }
+                case 5:
+                {
+                    sc.close();
+                    System.out.println("Bye Bye!!!!!!");
+                    System.exit(0);
+                    break;
+                }
+                default:
+                {
+
+                }
+            }
+
+
+        }
+    }
+}
+output:
+1.add a Book
+2.List all the Books
+3.Get a Book
+4.Update a Book Price
+5.Exit
+Enter your choice:
+1
+Enter the details of the book:
+10
+Java
+100
+Book added successfully!!!!!
+1.add a Book
+2.List all the Books
+3.Get a Book
+4.Update a Book Price
+5.Exit
+Enter your choice:
+1
+Enter the details of the book:
+20
+C++
+200
+Book added successfully!!!!!
+1.add a Book
+2.List all the Books
+3.Get a Book
+4.Update a Book Price
+5.Exit
+Enter your choice:
+1
+Enter the details of the book:
+30
+C
+300
+Book added successfully!!!!!
+1.add a Book
+2.List all the Books
+3.Get a Book
+4.Update a Book Price
+5.Exit
+Enter your choice:
+2
+Book{bookId=10, bookName='Java', bookPrice=100}
+Book{bookId=20, bookName='C++', bookPrice=200}
+Book{bookId=30, bookName='C', bookPrice=300}
+1.add a Book
+2.List all the Books
+3.Get a Book
+4.Update a Book Price
+5.Exit
+Enter your choice:
+3
+Enter the bookId:
+10
+Book{bookId=10, bookName='Java', bookPrice=100}
+1.add a Book
+2.List all the Books
+3.Get a Book
+4.Update a Book Price
+5.Exit
+Enter your choice:
+4
+Enter the book id and update Price:
+30
+350
+Book price updated successfully!!!!1 
+1.add a Book
+2.List all the Books
+3.Get a Book
+4.Update a Book Price
+5.Exit
+Enter your choice:
+2
+Book{bookId=10, bookName='Java', bookPrice=100}
+Book{bookId=20, bookName='C++', bookPrice=200}
+Book{bookId=30, bookName='C', bookPrice=350}
+1.add a Book
+2.List all the Books
+3.Get a Book
+4.Update a Book Price
+5.Exit
+Enter your choice:
+5
+Bye Bye!!!!!!
+
+
